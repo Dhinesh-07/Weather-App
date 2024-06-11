@@ -1,0 +1,60 @@
+/* WeatherForecast.css */
+
+.CurrentWeatherDisplay {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.CurrentWeatherDisplay h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.CurrentWeatherDisplay h2 {
+  font-size: 20px;
+  color: #555;
+}
+
+.CurrentWeatherDisplay p {
+  font-size: 16px;
+  color: #777;
+}
+
+.CurrentWeatherDisplay p.temperature {
+  font-size: 18px;
+  color: #ff6347; /* Tomato */
+}
+
+.CurrentWeatherDisplay p.description {
+  font-size: 16px;
+  color: #4caf50; /* Green */
+}
+
+.CurrentWeatherDisplay img {
+  width: 75px;
+  height: 75px;
+  filter: invert(80%); /* Change the color of the image */
+}
+
+/*
+.CurrentWeatherDisplay img {
+  width: 75px;
+  height: 75px;
+  animation-name: example;
+   animation-duration: 6s; */
+/* Set the duration *//*
+
+   animation-iteration-count: infinite; */
+/* Make the animation repeat infinitely *//*
+
+ }
+
+@keyframes example {
+  0%   {background-color: red;}
+  25%  {background-color: black;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}*/
