@@ -13,6 +13,10 @@ function Navbar() {
 
   return (
     <>
+      <div class="scroll-text">
+          <a>We're currently under development. Some features may be temporarily unavailable.</a>
+      </div>
+
       <IconContext.Provider value={{ color: "undefined" }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">

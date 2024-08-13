@@ -30,8 +30,10 @@ class WeatherApp extends Component {
   render() {
     const { city, weatherData, currentWeather, error } = this.state;
     return (
+      <>
+      <h1 className="home">Weather App</h1>
       <div class="weather-container">
-        <h1 className="home">Weather App</h1>
+        
         <br/>
 
         <br/>
@@ -50,6 +52,7 @@ class WeatherApp extends Component {
           error={error}
         />
       </div>
+      </>
     );
   }
 }

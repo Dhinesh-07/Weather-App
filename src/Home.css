@@ -1,0 +1,57 @@
+/* Home.css */
+.home-container {
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  .home-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .home-intro {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .home-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .home-project {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home-project h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .home-project p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .home-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #0056b3;
+  }
+  

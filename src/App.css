@@ -6,6 +6,7 @@
   padding: 0;
   font-family: "Lato", sans-serif;
 }
+
 .container {
   padding: 30px;
   background-color: #f0f0f0;
@@ -13,6 +14,7 @@
   margin: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .home,
 .Counter,
 .products {
@@ -31,6 +33,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .menu-bars {
@@ -38,6 +41,7 @@
   font-size: 2rem;
   background: none;
   color: #000;
+  cursor: pointer;
 }
 
 .nav-menu {
@@ -49,12 +53,13 @@
   position: fixed;
   top: 0;
   left: -100%;
-  transition: 850ms;
+  transition: 850ms ease-in-out;
+  z-index: 1000;
 }
 
 .nav-menu.active {
   left: 0;
-  transition: 450ms;
+  transition: 450ms ease-in-out;
 }
 
 .nav-text {
@@ -76,6 +81,7 @@
   align-items: center;
   padding: 0 16px;
   border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .nav-text a:hover {
@@ -97,5 +103,47 @@
 }
 
 span {
-  margin-left: 16px;
+  margin-left: 20px;
+}
+
+/* Scrolling Text CSS */
+.scroll-text {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  height: 40px; /* Adjust height as needed */
+  font-size: 1.5em; /* Adjust font size as needed */
+  font-weight: bold; /* Makes text bold */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  background-color: #f8f8f8; /* Background for better visibility */
+  padding: 10px 0; /* Padding for better text positioning */
+}
+
+.scroll-text a {
+  background: linear-gradient(45deg, red, orange, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  animation: scrollBothWays 10s linear infinite;
+}
+
+/* Animation for center to left and then center to right */
+@keyframes scrollBothWays {
+  0% {
+    transform: translateX(0); /* Start at the center */
+  }
+  25% {
+    transform: translateX(-50%); /* Move to the left */
+  }
+  50% {
+    transform: translateX(0); /* Back to the center */
+  }
+  75% {
+    transform: translateX(50%); /* Move to the right */
+  }
+  100% {
+    transform: translateX(0); /* Back to the center */
+  }
 }
