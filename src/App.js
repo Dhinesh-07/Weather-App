@@ -1,53 +1,58 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { Outlet } from "react-router-dom";
+import React, { useState } from "react";
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Login } from "./Login";
+import { Register } from "./Register";
 import Home from "./Home";
 import WeatherApp from "./WeatherApp";
 import Contact from "./Contact";
 import Navbar from "./Components/Navbar";
-import Login from "./Components/Login";
 import Counter from "./Counter";
 import Population from "./Population";
 
-import "./App.css";
-
-// Layout component that includes Navbar and Outlet for nested routes
+// Create a layout for authenticated users
 const AppLayout = () => (
   <>
     <Navbar />
-    <Outlet />
+    <Routes>
+      <Route path="home" element={<Home />} />
+      <Route path="weather" element={<WeatherApp />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="counter" element={<Counter />} />
+      <Route path="population" element={<Population />} />
+    </Routes>
   </>
 );
 
-const App = () => {
-  // State to manage authentication
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+function App() {
+  const [currentForm, setCurrentForm] = useState('login');
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
 
-  // Check authentication status on component mount
-  useEffect(() => {
-    // Check local storage for username
-    const username = localStorage.getItem('username');
-    console.log(username);
-    if (username) {
-      setIsAuthenticated(true);
-    }
-  }, []);
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  };
+
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true); // Set login state to true on successful login
+  };
+
   return (
-    <Router>
-      <Routes>
-        {/* The Login route */}
-        <Route path="/" element={isAuthenticated ? <Navigate to="/home" /> : <Login setIsAuthenticated={setIsAuthenticated} />} />
-        {/* Protected routes that require authentication */}
-        <Route element={isAuthenticated ? <AppLayout /> : <Navigate to="/" />}>
-          <Route path="home" element={<Home />} />
-          <Route path="weather" element={<WeatherApp />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="counter" element={<Counter />} />
-          <Route path="population" element={<Population />} />
-        </Route>
-      </Routes>
-    </Router>
+    <div className="App App-asa">  {/* Add App-asa class here */}
+      <Router>
+        {
+          isLoggedIn ? (
+            <AppLayout />  // Show AppLayout after successful login
+          ) : (
+            currentForm === "login" ? (
+              <Login onFormSwitch={toggleForm} onLoginSuccess={handleLoginSuccess} />
+            ) : (
+              <Register onFormSwitch={toggleForm} />
+            )
+          )
+        }
+      </Router>
+    </div>
   );
-};
+}
 
 export default App;
